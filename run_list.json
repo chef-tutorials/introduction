@@ -1,7 +1,9 @@
 { 
   "run_list": [
     "recipe[apache2::install]",
+    "recipe[apache2::configure]",
     "recipe[postgresql::install]",
+    "recipe[postgresql::configure]",
     "recipe[minitest-handler-solo]" 
   ]
 }

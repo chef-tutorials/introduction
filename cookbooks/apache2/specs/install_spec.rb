@@ -18,7 +18,7 @@ describe_recipe "apache2::install" do
   describe "the functionality of the cookbook" do
     it "installs the apache2 package" do
       package("apache2").must_be_installed
-      puts "Success. Check 10.10.10.5 in a browser to see apache2 running."
+      #puts "Success. Check 10.10.10.5 in a browser to see apache2 running."
     end
   end
 end

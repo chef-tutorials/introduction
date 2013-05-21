@@ -10,6 +10,8 @@
 template "/etc/apache2/sites-available/default" do
   source "default.erb"
   action :create
+  owner "vagrant"
+  group "vagrant"
   variables(
     :port => "8080"
   )
@@ -19,6 +21,8 @@ end
 template "/etc/apache2/ports.conf" do
   source "ports.conf.erb"
   action :create
+  owner "vagrant"
+  group "vagrant"
   variables(
     :port => "8080"
   )

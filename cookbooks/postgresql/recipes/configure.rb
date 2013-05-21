@@ -10,8 +10,8 @@
 template "/etc/postgresql/9.1/main/postgresql.conf" do
   source "postgresql.conf.erb"
   action :create
-  owner "vagrant"
-  group "vagrant"
+  owner node.postgresql.owner
+  group node.postgresql.group
   variables(
     :port => "9999"
   )

@@ -30,7 +30,11 @@ describe_recipe "postgresql::configure" do
     end
 
     it "ensures that the owner and group permission settings are correct for postgresql.conf" do
-      file("/etc/postgresql/9.1/main/postgresql.conf").must_exist.with(:owner, "vagrant").and(:group, "vagrant")
+      file("/etc/postgresql/9.1/main/postgresql.conf").must_exist.with(:owner, "postgres").and(:group, "postgres")
     end
-  end
+    it "Be DRY: http://en.wikipedia.org/wiki/Don't_repeat_yourself" do
+      assert node.postgresql.owner == "postgres", "The postgresql cookbook should use the attributes to change the owner to postgres."
+      assert node.postgresql.group == "postgres", "The postgresql cookbook should use the attributes to change the group to postgres."
+    end
+ end
 end

@@ -35,11 +35,16 @@ describe_recipe "apache2::configure" do
     end
     
     it "ensures that the owner and group permission settings are correct for ports.conf" do
-      file("/etc/apache2/ports.conf").must_exist.with(:owner, "vagrant").and(:group, "vagrant")
+      file("/etc/apache2/ports.conf").must_exist.with(:owner, "www-data").and(:group, "www-data")
     end
     
     it "ensures that the owner and group permission settings are correct for default file in sites-available" do
-      file("/etc/apache2/sites-available/default").must_exist.with(:owner, "vagrant").and(:group, "vagrant")
+      file("/etc/apache2/sites-available/default").must_exist.with(:owner, "www-data").and(:group, "www-data")
+    end
+
+    it "Be DRY: http://en.wikipedia.org/wiki/Don't_repeat_yourself" do
+      assert node.apache2.owner == "www-data", "The apache2 cookbook should use the attributes to change the owner to www-data."
+      assert node.apache2.group == "www-data", "The apache2 cookbook should use the attributes to change the group to www-data."
     end
   end
 end

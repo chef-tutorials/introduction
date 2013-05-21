@@ -6,3 +6,26 @@
 #
 # Some rights reserved - Redistribute
 #
+
+template "/etc/apache2/sites-available/default" do
+  source "default.erb"
+  action :create
+  variables(
+    :port => "8080"
+  )
+  notifies :restart, "service[apache2]"
+end
+
+template "/etc/apache2/ports.conf" do
+  source "ports.conf.erb"
+  action :create
+  variables(
+    :port => "8080"
+  )
+  notifies :restart, "service[apache2]"
+end
+
+service "apache2" do
+  action :restart
+end
+

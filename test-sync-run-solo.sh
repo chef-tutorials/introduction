@@ -7,13 +7,13 @@ sudo chown -R vagrant:vagrant /var/chef
 # TEST
 #########################################
 
-knife cookbook test -a -o cookbooks -c $HOME/.chef/knife.rb || { echo "[chef-tutorial]FATAL: Failed syntax check!!!" ; exit 1; }
+knife cookbook test -a -o cookbooks -c $HOME/.chef/knife.rb || { echo "[chef-tutorial]FATAL: Failed ruby syntax test!!!" ; exit 1; }
 
-echo '';echo '';echo '';
+echo '';echo '';
 echo '[chef-tutorial]INFO: Ruby syntax test passed!'
 echo ''
 
-foodcritic -f any cookbooks || { echo "[chef-tutorial]FATAL: Failed foodcritic check!!!" ; exit 1; }
+foodcritic -f any cookbooks || { echo "[chef-tutorial]FATAL: Failed foodcritic (lint) test!!!" ; exit 1; }
 
 echo ''
 echo '[chef-tutorial]INFO: Foodcritic (lint) test passed!'
@@ -39,4 +39,3 @@ ssh root@$CHEF_SOLO_BOX "/opt/vagrant_ruby/bin/chef-solo -j /var/chef/run_list.j
 echo ''
 echo '[chef-tutorial]INFO: Examine the success message, then proceed to the next step!'
 echo ''
-

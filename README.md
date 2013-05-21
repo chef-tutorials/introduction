@@ -3,6 +3,9 @@ Introduction
 This is a self-driven tutorial on writing [Opscode Chef](http://www.opscode.com/chef/)'s [cookbooks](http://docs.opscode.com/essentials_cookbooks.html).
 
 __assumption__: the user is using the [workstation](https://github.com/chef-tutorials/workstation.git) repository's vagrant boxes to run this tutorial.
+
+__disclaimer__: The cookbooks written in the tutorial are designed for educational purposes.
+
 Instructions
 ============
 Within the __ubuntu vagrant workstation__:
@@ -19,7 +22,9 @@ git checkout -f step-01
 ./test-sync-run-solo.sh
 ```
 
-C. Edit the cookbooks in the introduction repository using your favorite text editor to make the `test-sync-run-solo.sh` script pass.
+C. Edit the cookbooks in the cookbooks directory using your favorite text editor to make the `test-sync-run-solo.sh` script pass.
+
+__NOTE__: Explore the cookbooks directory for examples.
 
 e.g. open your workspace by typing the following in the terminal:
 
@@ -59,4 +64,4 @@ git checkout -f step-04
 git stash pop
 ```
 
-* When you would to check your progress in the tutorial run `git tag` and you can see how many steps are remaining.
+* If you want to check your progress in the tutorial run `git tag` and you can see how many steps are remaining.

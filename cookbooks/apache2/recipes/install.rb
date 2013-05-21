@@ -1,4 +1,4 @@
-#
+#                                                                                                                                                                       
 # Cookbook Name:: apache2
 # Recipe:: install
 #
@@ -6,3 +6,7 @@
 #
 # Some rights reserved - Redistribute
 #
+
+package "apache2" do
+  action :install
+end

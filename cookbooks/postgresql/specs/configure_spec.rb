@@ -28,5 +28,9 @@ describe_recipe "postgresql::configure" do
       `nc -z 10.10.10.5 9999`
       assert $?.exitstatus == 0, "The postgresql service should be listening on port 9999. hint: did you restart the service?"
     end
+
+    it "ensures that the owner and group permission settings are correct for postgresql.conf" do
+      file("/etc/postgresql/9.1/main/postgresql.conf").must_exist.with(:owner, "vagrant").and(:group, "vagrant")
+    end
   end
 end

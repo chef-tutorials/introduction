@@ -31,7 +31,15 @@ describe_recipe "apache2::configure" do
     it "configures the apache2 service to listen on port 8080" do
       `nc -z 10.10.10.5 8080`
       assert $?.exitstatus == 0, "The apache2 service should be listening on port 8080. hint: did you restart the service?"
-      puts "Success. Check 10.10.10.5:8080 in a browser to see apache2 running on port 8080."
+      #puts "Success. Check 10.10.10.5:8080 in a browser to see apache2 running on port 8080."
+    end
+    
+    it "ensures that the owner and group permission settings are correct for ports.conf" do
+      file("/etc/apache2/ports.conf").must_exist.with(:owner, "vagrant").and(:group, "vagrant")
+    end
+    
+    it "ensures that the owner and group permission settings are correct for default file in sites-available" do
+      file("/etc/apache2/sites-available/default").must_exist.with(:owner, "vagrant").and(:group, "vagrant")
     end
   end
 end

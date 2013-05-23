@@ -2,7 +2,7 @@ Introduction
 ============
 This is a test-driven tutorial on writing [Opscode Chef](http://www.opscode.com/chef/)'s [cookbooks](http://docs.opscode.com/essentials_cookbooks.html).
 
-The tests will guide you to write an apache2 cookbook. This cookbook will execute on the chef_node VM to run a apache2 server. Also, the postgresql cookbook will serve as a guiding example for each step.
+The tests will guide you to write an apache2 cookbook. This cookbook will execute on the chef_node VM to run an apache2 server. Also, the postgresql cookbook will serve as a guiding example for each step.
 
 __assumption__: the user is using the [workstation](https://github.com/chef-tutorials/workstation.git) repository's vagrant boxes to run this tutorial.
 
@@ -25,6 +25,8 @@ git checkout -f step-01
 ```
 
 C. Edit the cookbooks in the cookbooks directory using your favorite text editor to make the `test-sync-run-solo.sh` script pass.
+
+__Note__: Explore the cookbooks directory for examples
 
 e.g. open your workspace by typing the following in the terminal:
 

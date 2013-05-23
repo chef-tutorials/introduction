@@ -38,4 +38,5 @@ ssh root@$CHEF_SOLO_BOX "/opt/vagrant_ruby/bin/chef-solo -j /var/chef/run_list.j
 
 echo ''
 echo '[chef-tutorial]INFO: Examine the success message, then proceed to the next step!'
+echo '[chef-tutorial]INFO: Move on to the next step with `git checkout -f step-xx`'
 echo ''
